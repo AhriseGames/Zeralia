@@ -1,0 +1,11 @@
+echo ".vs/
+Library/
+Temp/
+Logs/
+UserSettings/
+*.unityproj
+*.sln
+*.user
+*.DS_Store
+*.meta
+*.unitypackage" > .gitignore
