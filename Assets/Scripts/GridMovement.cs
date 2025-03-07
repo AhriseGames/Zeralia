@@ -11,7 +11,7 @@ public class GridMovement : MonoBehaviour
     public bool isWaitingForInput = false;
     private StatusMessageUI statusUI;
 
-
+    //test
     void Start()
     {
         Camera.main.orthographicSize = (Screen.height / (32 * 2));
