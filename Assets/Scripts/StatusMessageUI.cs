@@ -25,7 +25,7 @@ public class StatusMessageUI : MonoBehaviour
         {
             statusMessageCanvas.gameObject.SetActive(true);
             statusMessage.text = "Blocked!";
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(.8f);
             statusMessage.text = "";
             statusMessageCanvas.gameObject.SetActive(false);
 
@@ -33,8 +33,10 @@ public class StatusMessageUI : MonoBehaviour
         if (statusEffect == "Poisoned")
         {
             statusMessageCanvas.gameObject.SetActive(true);
+            statusMessage.text = "Poisoned!";
+            yield return new WaitForSeconds(1f);
             statusMessage.text = "";
-            yield return new WaitForSeconds(3f);
+            statusMessageCanvas.gameObject.SetActive(false);
         }
     }
 }
