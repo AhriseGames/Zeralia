@@ -10,7 +10,7 @@ public class GridMovement : MonoBehaviour
     public bool isMoving = false;
     public bool isWaitingForInput = false;
     private StatusMessageUI statusUI;
-    public EnemyCombat enemyCombatReference;
+
 
 
     //test
@@ -26,10 +26,8 @@ public class GridMovement : MonoBehaviour
         {
             StartCoroutine(statusUI.ShowStatusMessage("Poisoned"));
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            enemyCombatReference.TakeDamage(25f);
-        }
+
+
 
         if (isMoving || isWaitingForInput) return; // Prevent movement spam
         
