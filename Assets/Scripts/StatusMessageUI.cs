@@ -38,6 +38,14 @@ public class StatusMessageUI : MonoBehaviour
             statusMessage.text = "";
             statusMessageCanvas.gameObject.SetActive(false);
         }
+        if (statusEffect == "Gay")
+        {
+            statusMessageCanvas.gameObject.SetActive(true);
+            statusMessage.text = "Gay!";
+            yield return new WaitForSeconds(1f);
+            statusMessage.text = "";
+            statusMessageCanvas.gameObject.SetActive(false);
+        }
     }
 }
 

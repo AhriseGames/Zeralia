@@ -10,6 +10,8 @@ public class GridMovement : MonoBehaviour
     public bool isMoving = false;
     public bool isWaitingForInput = false;
     private StatusMessageUI statusUI;
+    public EnemyCombat enemyCombatReference;
+
 
     //test
     void Start()
@@ -20,6 +22,15 @@ public class GridMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            StartCoroutine(statusUI.ShowStatusMessage("Poisoned"));
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            enemyCombatReference.TakeDamage(25f);
+        }
+
         if (isMoving || isWaitingForInput) return; // Prevent movement spam
         
         Vector3 movementInput = Vector3.zero;
@@ -43,6 +54,7 @@ public class GridMovement : MonoBehaviour
         Vector3 finalMovement = initialInput;
         bool secondInputDetected = false;
 
+
         float waitTime = 0.08f;
         while (waitTime > 0)
         {
@@ -54,6 +66,7 @@ public class GridMovement : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.S) && initialInput.y == 0) { finalMovement += new Vector3(0, -gridSize.y, 0); secondInputDetected = true; }
                 if (Input.GetKeyDown(KeyCode.A) && initialInput.x == 0) { finalMovement += new Vector3(-gridSize.x, 0, 0); secondInputDetected = true; }
                 if (Input.GetKeyDown(KeyCode.D) && initialInput.x == 0) { finalMovement += new Vector3(gridSize.x, 0, 0); secondInputDetected = true; }
+
             }
 
             yield return null;

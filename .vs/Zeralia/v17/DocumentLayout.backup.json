@@ -3,7 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\sebas\\Desktop\\Zeralia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|c:\\users\\sebas\\desktop\\zeralia\\assets\\scripts\\statusmessageui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|c:\\users\\sebas\\desktop\\zeralia\\assets\\scripts\\characterstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\characterstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|c:\\users\\sebas\\desktop\\zeralia\\assets\\scripts\\gridmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gridmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\statusmessageui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\statusmessageui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,17 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GridMovement.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\GridMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GridMovement.cs",
+              "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\GridMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GridMovement.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowBwAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T19:06:47.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CharacterStats.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\CharacterStats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CharacterStats.cs",
+              "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\CharacterStats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CharacterStats.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAIwCUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T16:43:10.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "StatusMessageUI.cs",
               "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\StatusMessageUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StatusMessageUI.cs",
               "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\StatusMessageUI.cs",
               "RelativeToolTip": "Assets\\Scripts\\StatusMessageUI.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wCAAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-07T15:11:10.05Z",
               "EditorCaption": ""
