@@ -11,7 +11,7 @@ public class CharacterStats : MonoBehaviour
         {
             { "Health", 100f },
             { "Mana", 50f },
-            { "Strength", 10f },
+            { "Movement Speed", 10f },
             { "Agility", 5f },
             { "Wisdom", 7f },
             { "Ego", 6f },
@@ -31,6 +31,7 @@ public class CharacterStats : MonoBehaviour
         {
             { "Health", 100f },
             { "Mana", 50f },
+            { "Movement Speed", 50f },
             { "Strength", 10f },
             { "Agility", 5f },
             { "Wisdom", 7f },
