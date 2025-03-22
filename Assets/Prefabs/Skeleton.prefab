@@ -148,8 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3925dfc41237348458f3c5e1884344d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: Skeleton
   characterStats: {fileID: 0}
   enemyHealthText: {fileID: 5359015947388127831}
+  characterSpeed: 0
 --- !u!1 &6169448521578024092
 GameObject:
   m_ObjectHideFlags: 0

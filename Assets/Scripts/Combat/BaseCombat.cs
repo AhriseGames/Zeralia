@@ -9,9 +9,15 @@ public class BaseCombat : MonoBehaviour
     float enemyMaxHealth;
     public CharacterStats characterStats;
     public TextMeshProUGUI enemyHealthText;
+    public float characterSpeed;
+    public int turnCounter;
+    private TurnManager turnManager;
+
 
     void Start()
     {
+        turnManager = FindFirstObjectByType<TurnManager>();
+
         characterStats = FindFirstObjectByType<CharacterStats>();
         GrabEnemyStats();
         UpdateHealthText();
@@ -21,6 +27,7 @@ public class BaseCombat : MonoBehaviour
     {
         enemyCurrentHealth = characterStats.dCharacterStats[characterName]["Health"];
         enemyMaxHealth = characterStats.dCharacterStats[characterName]["Health"];
+        characterSpeed = characterStats.dCharacterStats[characterName]["Movement Speed"];
     }
 
     public void TakeDamage(float damage)
@@ -51,5 +58,19 @@ public class BaseCombat : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         enemyHealthText.text = "";
         Destroy(gameObject);
+    }
+
+    public void TurnCounter(int moveSpeed)
+    {
+        if (turnManager.battle == true && turnCounter < 100)
+        {
+            turnCounter += moveSpeed;
+        }
+        else
+        {
+            //run the method that allows you to take actions here
+            turnCounter = 0;
+            return;
+        }
     }
 }

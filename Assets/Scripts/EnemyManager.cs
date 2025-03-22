@@ -32,7 +32,6 @@ public class EnemyManager : MonoBehaviour
         // Assign characterStats to EnemyCombat
         BaseCombat enemyCombatScript = spawnedEnemy.GetComponent<BaseCombat>();
         enemyCombatScript.characterStats = characterStats;
-        enemyCombatScript.characterName = "Skeleton";
 
         yield return new WaitForSeconds(1f);
     }
