@@ -9,15 +9,26 @@ public class EnemyManager : MonoBehaviour
     public List<GameObject> forestEnemies = new List<GameObject>();
 
     public GameObject Skeleton;
+    public GameObject Orc;
+    public GameObject Elf;
+    public GameObject Dwarf;
+    public GameObject Goblin;
 
     void Awake()
     {
         forestEnemies.Add(Skeleton);
+        forestEnemies.Add(Orc);
+        forestEnemies.Add(Elf);
+        forestEnemies.Add(Dwarf);
+        forestEnemies.Add(Goblin);
         allEnemies.Add("Forest", forestEnemies);
 
     }
     void Start()
     {
+        StartCoroutine(SpawnEnemies("Forest"));
+        StartCoroutine(SpawnEnemies("Forest"));
+        StartCoroutine(SpawnEnemies("Forest"));
         StartCoroutine(SpawnEnemies("Forest"));
         StartCoroutine(SpawnEnemies("Forest"));
     }

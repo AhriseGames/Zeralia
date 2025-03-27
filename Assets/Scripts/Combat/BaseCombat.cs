@@ -12,6 +12,9 @@ public class BaseCombat : MonoBehaviour
     public float characterSpeed;
     public int turnCounter;
     private TurnManager turnManager;
+    public bool isReadyToAct = false;
+    public Sprite portraitSprite;
+    public TextMeshProUGUI portraitSpeed;
 
 
     void Start()
@@ -23,11 +26,14 @@ public class BaseCombat : MonoBehaviour
         UpdateHealthText();
     }
 
+
     public void GrabEnemyStats()
     {
         enemyCurrentHealth = characterStats.dCharacterStats[characterName]["Health"];
         enemyMaxHealth = characterStats.dCharacterStats[characterName]["Health"];
         characterSpeed = characterStats.dCharacterStats[characterName]["Movement Speed"];
+
+
     }
 
     public void TakeDamage(float damage)
@@ -62,15 +68,16 @@ public class BaseCombat : MonoBehaviour
 
     public void TurnCounter(int moveSpeed)
     {
-        if (turnManager.battle == true && turnCounter < 100)
+        if (turnCounter < 100)
         {
             turnCounter += moveSpeed;
+
         }
-        else
+        if (turnCounter >= 100 && !turnManager.isTurnInProgress)
         {
-            //run the method that allows you to take actions here
-            turnCounter = 0;
-            return;
+            Debug.Log("It is: " + characterName + "'s turn to act! " + turnCounter);
+            turnManager.isTurnInProgress = true;
+            turnManager.activeCombatant = this;
         }
     }
 }
