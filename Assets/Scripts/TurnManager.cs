@@ -76,7 +76,7 @@ public class TurnManager : MonoBehaviour
         foreach (BaseCombat combatant in combatantsFound)
         {
             Debug.Log(combatant + " Is now a part of the battle");
-            characterMovementSpeed = Mathf.RoundToInt(combatant.characterStats.dCharacterStats[combatant.characterName]["Movement Speed"]);
+            characterMovementSpeed = Mathf.RoundToInt(combatant.CurrentMovementSpeed);
             priorityCombatant.Enqueue(combatant, characterMovementSpeed);
         }
 

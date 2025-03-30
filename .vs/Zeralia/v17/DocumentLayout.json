@@ -3,36 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\sebas\\Desktop\\Zeralia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|c:\\users\\sebas\\desktop\\zeralia\\assets\\scripts\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\combat\\basecombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\basecombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\combat\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|c:\\users\\sebas\\desktop\\zeralia\\assets\\scripts\\turnorderui\\turnorderui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\turnorderui\\turnorderui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\combat\\enemycombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\enemycombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\gridmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gridmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\characterstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|c:\\users\\sebas\\desktop\\zeralia\\assets\\scripts\\characterstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\characterstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|c:\\users\\sebas\\desktop\\zeralia\\assets\\scripts\\combat\\abilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\abilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\queue system\\priority queue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,6 +21,30 @@
     {
       "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\statusmessageui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\statusmessageui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\gridmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gridmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\combat\\enemycombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\enemycombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\combat\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|C:\\Users\\sebas\\Desktop\\Zeralia\\assets\\scripts\\turnorderui\\turnorderui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C2B93FE-0B93-950B-6873-E89EF2050981}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\turnorderui\\turnorderui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,50 +54,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TurnOrderUI.cs",
-              "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\TurnOrderUI\\TurnOrderUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\TurnOrderUI\\TurnOrderUI.cs",
-              "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\TurnOrderUI\\TurnOrderUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\TurnOrderUI\\TurnOrderUI.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAwAAAAQAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CharacterStats.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\CharacterStats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CharacterStats.cs",
+              "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\CharacterStats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CharacterStats.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwCkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T20:24:11.535Z",
+              "WhenOpened": "2025-03-07T16:43:10.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Abilities.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\Combat\\Abilities.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\Abilities.cs",
+              "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\Combat\\Abilities.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Combat\\Abilities.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T07:23:43.316Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TurnManager.cs",
-              "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\TurnManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\TurnManager.cs",
-              "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\TurnManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\TurnManager.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T19:15:44.642Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "BaseCombat.cs",
               "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\Combat\\BaseCombat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\BaseCombat.cs",
               "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\Combat\\BaseCombat.cs",
               "RelativeToolTip": "Assets\\Scripts\\Combat\\BaseCombat.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFEAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAqwFQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T21:21:13.136Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
+              "Title": "TurnOrderUI.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\TurnOrderUI\\TurnOrderUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TurnOrderUI\\TurnOrderUI.cs",
+              "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\TurnOrderUI\\TurnOrderUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TurnOrderUI\\TurnOrderUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T20:24:11.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TurnManager.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\TurnManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TurnManager.cs",
+              "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\TurnManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TurnManager.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAowE4AAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T19:15:44.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "PlayerCombat.cs",
               "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\Combat\\PlayerCombat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\PlayerCombat.cs",
@@ -106,20 +136,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "EnemyManager.cs",
               "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\EnemyManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyManager.cs",
               "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\EnemyManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\EnemyManager.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwB8AAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwB4AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T15:36:59.757Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "EnemyCombat.cs",
               "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\Combat\\EnemyCombat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\EnemyCombat.cs",
@@ -132,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "GridMovement.cs",
               "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\GridMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GridMovement.cs",
@@ -145,20 +175,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "StatusMessageUI.cs",
               "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\StatusMessageUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StatusMessageUI.cs",
               "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\StatusMessageUI.cs",
               "RelativeToolTip": "Assets\\Scripts\\StatusMessageUI.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwB8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-07T15:11:10.05Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "Priority Queue.cs",
               "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\Queue System\\Priority Queue.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Queue System\\Priority Queue.cs",
@@ -167,19 +197,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T19:29:50.242Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CharacterStats.cs",
-              "DocumentMoniker": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\CharacterStats.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CharacterStats.cs",
-              "ToolTip": "C:\\Users\\sebas\\Desktop\\Zeralia\\Assets\\Scripts\\CharacterStats.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CharacterStats.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAIwG4AAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T16:43:10.366Z",
               "EditorCaption": ""
             }
           ]

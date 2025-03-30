@@ -240,11 +240,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Dwarf
   characterStats: {fileID: 0}
-  enemyHealthText: {fileID: 3673138945747317625}
+  HealthText: {fileID: 3673138945747317625}
   characterSpeed: 10
   turnCounter: 0
   isReadyToAct: 0
   portraitSprite: {fileID: 8056063132577222124, guid: d1db67667952c0548b5c29116e9aefcb, type: 3}
+  portraitSpeed: {fileID: 0}
 --- !u!61 &6559661540727916627
 BoxCollider2D:
   m_ObjectHideFlags: 0

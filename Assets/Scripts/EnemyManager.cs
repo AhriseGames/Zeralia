@@ -7,6 +7,7 @@ public class EnemyManager : MonoBehaviour
     public CharacterStats characterStats;
     public Dictionary<string, List<GameObject>> allEnemies = new Dictionary<string, List<GameObject>>();
     public List<GameObject> forestEnemies = new List<GameObject>();
+    public List<GameObject> dummyEnemy = new List<GameObject>();
 
     public GameObject Skeleton;
     public GameObject Orc;
@@ -22,15 +23,14 @@ public class EnemyManager : MonoBehaviour
         forestEnemies.Add(Dwarf);
         forestEnemies.Add(Goblin);
         allEnemies.Add("Forest", forestEnemies);
-
+        dummyEnemy.Add(Skeleton);
+        allEnemies.Add("Dummy", dummyEnemy);
     }
     void Start()
     {
-        StartCoroutine(SpawnEnemies("Forest"));
-        StartCoroutine(SpawnEnemies("Forest"));
-        StartCoroutine(SpawnEnemies("Forest"));
-        StartCoroutine(SpawnEnemies("Forest"));
-        StartCoroutine(SpawnEnemies("Forest"));
+        //StartCoroutine(SpawnEnemies("Forest"));
+        StartCoroutine(SpawnEnemies("Dummy"));
+
     }
 
     public IEnumerator SpawnEnemies(string zoneName)

@@ -240,11 +240,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Goblin
   characterStats: {fileID: 0}
-  enemyHealthText: {fileID: 3163714940492105825}
+  HealthText: {fileID: 3163714940492105825}
   characterSpeed: 10
   turnCounter: 0
   isReadyToAct: 0
   portraitSprite: {fileID: 8749302817991680212, guid: 943bbe1544960dc4798ec802b6cbf22f, type: 3}
+  portraitSpeed: {fileID: 0}
 --- !u!61 &8416447709535510555
 BoxCollider2D:
   m_ObjectHideFlags: 0

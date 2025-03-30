@@ -24,7 +24,7 @@ public class TurnOrderUI : MonoBehaviour
         for (int i = 0; i < Mathf.Min(5, combatantsUI.Count); i++)
         {
             var combatant = combatantsUI[i].Item;
-            turnSpeedTurnCounter[i].text = "Spd/TC:\n" + combatant.characterSpeed + " / " + combatant.turnCounter;
+            turnSpeedTurnCounter[i].text = "Spd/TC:\n" + combatant.CurrentMovementSpeed + " / " + combatant.turnCounter;
             var baseCombatRefPortraits = combatantsUI[i].Item;
             Sprite characterPortraitSprite = baseCombatRefPortraits.portraitSprite;
             turnOrder[i].sprite = characterPortraitSprite;

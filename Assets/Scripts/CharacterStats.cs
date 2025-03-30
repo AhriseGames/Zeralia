@@ -18,13 +18,14 @@ public class CharacterStats : MonoBehaviour
             { "Toughness", 8f },
             { "Willpower", 9f },
             { "Critical Chance", 5f },
-            { "Critical Damage", 150f },
+            { "Critical Damage", 1.5f },
+            { "Dodge Chance", 3f },
             { "Perception", 4f },
             { "Block Chance", 10f },
-            { "Armor Penetration", 2f },
-            { "Magic Penetration", 3f },
-            { "Armor", 2f },
-            { "Magic Resist", 3f }
+            { "Armor Penetration", .1f },
+            { "Magic Penetration", .1f },
+            { "Armor", .2f },
+            { "Magic Resist", .3f }
         });
         
                 dCharacterStats.Add("Orc", new Dictionary<string, float>
@@ -38,13 +39,14 @@ public class CharacterStats : MonoBehaviour
             { "Toughness", 8f },
             { "Willpower", 9f },
             { "Critical Chance", 5f },
-            { "Critical Damage", 150f },
+            { "Critical Damage", 1.5f },
+            { "Dodge Chance", 3f },
             { "Perception", 4f },
             { "Block Chance", 10f },
-            { "Armor Penetration", 2f },
-            { "Magic Penetration", 3f },
-            { "Armor", 2f },
-            { "Magic Resist", 3f }
+            { "Armor Penetration", .1f },
+            { "Magic Penetration", .1f },
+            { "Armor", .2f },
+            { "Magic Resist", .3f }
         });
 
         dCharacterStats.Add("Skeleton", new Dictionary<string, float>
@@ -59,13 +61,14 @@ public class CharacterStats : MonoBehaviour
             { "Toughness", 8f },
             { "Willpower", 9f },
             { "Critical Chance", 5f },
-            { "Critical Damage", 150f },
+            { "Critical Damage", 1.5f },
+            { "Dodge Chance", 3f },
             { "Perception", 4f },
             { "Block Chance", 10f },
-            { "Armor Penetration", 2f },
-            { "Magic Penetration", 3f },
-            { "Armor", 2f },
-            { "Magic Resist", 3f }
+            { "Armor Penetration", .1f },
+            { "Magic Penetration", .1f },
+            { "Armor", .2f },
+            { "Magic Resist", .3f }
         });
 
         dCharacterStats.Add("Dwarf", new Dictionary<string, float>
@@ -79,13 +82,14 @@ public class CharacterStats : MonoBehaviour
             { "Toughness", 8f },
             { "Willpower", 9f },
             { "Critical Chance", 5f },
-            { "Critical Damage", 150f },
+            { "Critical Damage", 1.5f },
+            { "Dodge Chance", 3f },
             { "Perception", 4f },
             { "Block Chance", 10f },
-            { "Armor Penetration", 2f },
-            { "Magic Penetration", 3f },
-            { "Armor", 2f },
-            { "Magic Resist", 3f }
+            { "Armor Penetration", .1f },
+            { "Magic Penetration", .1f },
+            { "Armor", .2f },
+            { "Magic Resist", .3f }
         });
 
         dCharacterStats.Add("Elf", new Dictionary<string, float>
@@ -99,13 +103,14 @@ public class CharacterStats : MonoBehaviour
             { "Toughness", 8f },
             { "Willpower", 9f },
             { "Critical Chance", 5f },
-            { "Critical Damage", 150f },
+            { "Critical Damage", 1.5f },
+            { "Dodge Chance", 3f },
             { "Perception", 4f },
             { "Block Chance", 10f },
-            { "Armor Penetration", 2f },
-            { "Magic Penetration", 3f },
-            { "Armor", 2f },
-            { "Magic Resist", 3f }
+            { "Armor Penetration", .1f },
+            { "Magic Penetration", .1f },
+            { "Armor", .2f },
+            { "Magic Resist", .3f }
         });
 
         dCharacterStats.Add("Goblin", new Dictionary<string, float>
@@ -119,13 +124,14 @@ public class CharacterStats : MonoBehaviour
             { "Toughness", 8f },
             { "Willpower", 9f },
             { "Critical Chance", 5f },
-            { "Critical Damage", 150f },
+            { "Critical Damage", 1.5f },
+            { "Dodge Chance", 3f },
             { "Perception", 4f },
             { "Block Chance", 10f },
-            { "Armor Penetration", 2f },
-            { "Magic Penetration", 3f },
-            { "Armor", 2f },
-            { "Magic Resist", 3f }
+            { "Armor Penetration", .1f },
+            { "Magic Penetration", .1f },
+            { "Armor", .2f },
+            { "Magic Resist", .3f }
         });
 
 

@@ -342,11 +342,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Orc
   characterStats: {fileID: 0}
-  enemyHealthText: {fileID: 8607221843898949245}
+  HealthText: {fileID: 8607221843898949245}
   characterSpeed: 10
   turnCounter: 0
   isReadyToAct: 0
   portraitSprite: {fileID: 3799508404887519019, guid: 1bed7e41ad574e545a29f8b1886bb69c, type: 3}
+  portraitSpeed: {fileID: 0}
 --- !u!61 &7440181382812428615
 BoxCollider2D:
   m_ObjectHideFlags: 0

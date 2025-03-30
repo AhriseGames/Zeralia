@@ -1,70 +1,133 @@
 using TMPro;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Playables;
 
 public class BaseCombat : MonoBehaviour
 {
     public string characterName; // ADD THIS!!
-    float enemyCurrentHealth;
-    float enemyMaxHealth;
-    public CharacterStats characterStats;
-    public TextMeshProUGUI enemyHealthText;
+
     public float characterSpeed;
+
+    public float MaxHealth, MaxMana, MaxMovementSpeed, MaxAgility, MaxWisdom, MaxEgo, MaxToughness, MaxWillpower, MaxCritChance, MaxCritDamage, MaxDodgeChance, MaxPerception, MaxBlockChance, MaxArmorPen, MaxMagicPen, MaxArmor, MaxMagicResist;
+    public float CurrentHealth, CurrentMana, CurrentMovementSpeed, CurrentAgility, CurrentWisdom, CurrentEgo, CurrentToughness, CurrentWillpower, CurrentCritChance, CurrentCritDamage,CurrentDodgeChance, CurrentPerception, CurrentBlockChance, CurrentArmorPen, CurrentMagicPen, CurrentArmor, CurrentMagicResist;
+
+
+
+    public CharacterStats characterStats;
+    public Abilities abilities;
+    public TextMeshProUGUI HealthText;
+
     public int turnCounter;
     private TurnManager turnManager;
     public bool isReadyToAct = false;
     public Sprite portraitSprite;
     public TextMeshProUGUI portraitSpeed;
+    public Dictionary<string, List<GameObject>> allEnemies = new Dictionary<string, List<GameObject>>();
+    public Dictionary<string, float> liveStats = new Dictionary<string, float>();
+
 
 
     void Start()
     {
         turnManager = FindFirstObjectByType<TurnManager>();
-
         characterStats = FindFirstObjectByType<CharacterStats>();
-        GrabEnemyStats();
+        InitializeStats();
+        GrabCharacterStats();
         UpdateHealthText();
     }
 
-
-    public void GrabEnemyStats()
+    public void InitializeStats()
     {
-        enemyCurrentHealth = characterStats.dCharacterStats[characterName]["Health"];
-        enemyMaxHealth = characterStats.dCharacterStats[characterName]["Health"];
-        characterSpeed = characterStats.dCharacterStats[characterName]["Movement Speed"];
-
-
+        foreach (var stat in characterStats.dCharacterStats[characterName])
+        {
+            liveStats.Add(stat.Key, stat.Value);
+        }
+        Debug.Log("Stats added for:" + characterName);
     }
 
-    public void TakeDamage(float damage)
+    public void GrabCharacterStats()
     {
-        if (enemyCurrentHealth > 0)
+        CurrentHealth = liveStats["Health"];
+        MaxHealth = liveStats["Health"];
+        MaxMana = liveStats["Mana"];
+        CurrentMana = liveStats["Mana"];
+        CurrentMovementSpeed = liveStats["Movement Speed"];
+        CurrentCritChance = liveStats["Critical Chance"];
+        CurrentMagicResist = liveStats["Magic Resistence"];
+    }
+
+    public void CombatCalculation(BaseCombat DamageReciever, string abilityUsed)
+    {
+        float abilityBaseDamage = abilities.dAbilityStats[abilityUsed]["Base Damage"];
+        float abilityDamageMultiplier = abilities.dAbilityStats[abilityUsed]["Damage Multiplier"];
+        float abilityManaCost = abilities.dAbilityStats[abilityUsed]["Mana Cost"];
+        float abilityHealthCost = abilities.dAbilityStats[abilityUsed]["Health Cost"];
+
+        string abilityDamageType = abilities.dAbilityInfo[abilityUsed]["Damage Type"];
+        string abilityAbilityType = abilities.dAbilityInfo[abilityUsed]["Ability Type"];
+        string abilityAbilityScaling = abilities.dAbilityInfo[abilityUsed]["Ability Scaling"];
+
+        float characterMultiplierStat = characterStats.dCharacterStats[characterName][abilityAbilityScaling];
+
+        int critRandomValue = Random.Range(0, 101);
+
+        float damageCalculation = abilityBaseDamage + (abilityDamageMultiplier * characterMultiplierStat);
+
+        if (critRandomValue <= CurrentCritChance)
         {
-            Debug.Log("Pre Damage Skeleton Health: " + enemyCurrentHealth);
-            enemyCurrentHealth -= damage;
-            Debug.Log("Post Damage Skeleton Health: " + enemyCurrentHealth);
+            damageCalculation *= CurrentCritDamage;
+        }
+
+
+        if (abilityDamageType == "True Damage")
+        {
+            DamageReciever.CurrentHealth -= damageCalculation;
+        }
+        if (abilityDamageType == "Physical Damage")
+        {
+            DamageReciever.CurrentHealth -= damageCalculation * ((1 -( DamageReciever.CurrentArmor - DamageReciever.CurrentArmorPen)));
+        }
+        if (abilityDamageType == "Magic Damage")
+        {
+            DamageReciever.CurrentHealth -= damageCalculation * ((1 - (DamageReciever.CurrentArmor - DamageReciever.CurrentMagicPen)));
+        }
+
+    }
+    
+    public void TakeDamage(BaseCombat DamageReciever, int damage)
+    {
+        if (CurrentHealth > 0)
+        {
+            Debug.Log("Pre Damage Health: " + CurrentHealth);
+            CurrentHealth -= damage;
+            Debug.Log("Post Damage Health: " + CurrentHealth);
             UpdateHealthText();
 
-            if (enemyCurrentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
                 StartCoroutine(CharacterDeath());
             }
         }
     }
-
     void UpdateHealthText()
     {
-        enemyHealthText.text = enemyCurrentHealth + " / " + enemyMaxHealth;
+        HealthText.text = CurrentHealth + " / " + MaxHealth;
     }
 
     public IEnumerator CharacterDeath()
     {
-        enemyHealthText.text = "DEAD";
+        HealthText.text = "DEAD";
         yield return new WaitForSeconds(.5f);
         GetComponent<Collider2D>().enabled = false;
-        enemyHealthText.text = "";
+        HealthText.text = "";
         Destroy(gameObject);
     }
+
+ 
+
+
 
     public void TurnCounter(int moveSpeed)
     {

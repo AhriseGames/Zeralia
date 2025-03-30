@@ -206,11 +206,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Elf
   characterStats: {fileID: 0}
-  enemyHealthText: {fileID: 1371979291033029936}
+  HealthText: {fileID: 1371979291033029936}
   characterSpeed: 10
   turnCounter: 0
   isReadyToAct: 0
   portraitSprite: {fileID: -3717686652356265191, guid: 1a36bb6cbe3ebd94da5ac95e59a5b819, type: 3}
+  portraitSpeed: {fileID: 0}
 --- !u!61 &2769525596706596417
 BoxCollider2D:
   m_ObjectHideFlags: 0
