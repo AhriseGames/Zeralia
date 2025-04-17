@@ -1,8 +1,7 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Playables;
 
 public class BaseCombat : MonoBehaviour
 {
@@ -55,47 +54,66 @@ public class BaseCombat : MonoBehaviour
         CurrentMana = liveStats["Mana"];
         CurrentMovementSpeed = liveStats["Movement Speed"];
         CurrentCritChance = liveStats["Critical Chance"];
-        CurrentMagicResist = liveStats["Magic Resistence"];
+        CurrentMagicResist = liveStats["Magic Resist"];
     }
 
-    public void CombatCalculation(BaseCombat DamageReciever, string abilityUsed)
+    public void CombatCalculation(BaseCombat DamageReceiver, string abilityUsed)
     {
+        // 🧮 Pull numeric ability stats
         float abilityBaseDamage = abilities.dAbilityStats[abilityUsed]["Base Damage"];
         float abilityDamageMultiplier = abilities.dAbilityStats[abilityUsed]["Damage Multiplier"];
         float abilityManaCost = abilities.dAbilityStats[abilityUsed]["Mana Cost"];
         float abilityHealthCost = abilities.dAbilityStats[abilityUsed]["Health Cost"];
 
+        // 🔤 Pull ability type info
         string abilityDamageType = abilities.dAbilityInfo[abilityUsed]["Damage Type"];
         string abilityAbilityType = abilities.dAbilityInfo[abilityUsed]["Ability Type"];
-        string abilityAbilityScaling = abilities.dAbilityInfo[abilityUsed]["Ability Scaling"];
+        string abilityScalingStat = abilities.dAbilityInfo[abilityUsed]["Ability Scaling"];
 
-        float characterMultiplierStat = characterStats.dCharacterStats[characterName][abilityAbilityScaling];
+        // 📈 Grab attacker’s stat that scales this ability
+        float characterMultiplierStat = characterStats.dCharacterStats[characterName][abilityScalingStat];
 
+        // 🎯 Roll for critical strike
         int critRandomValue = Random.Range(0, 101);
 
+        // 💥 Calculate total raw damage
         float damageCalculation = abilityBaseDamage + (abilityDamageMultiplier * characterMultiplierStat);
 
+        // 💢 Apply crit bonus if landed
         if (critRandomValue <= CurrentCritChance)
         {
-            damageCalculation *= CurrentCritDamage;
+            damageCalculation *= CurrentCritDamage; // Example: 1.5 = +50%
         }
 
-
+        // 💀 TRUE DAMAGE — ignores all defenses
         if (abilityDamageType == "True Damage")
         {
-            DamageReciever.CurrentHealth -= damageCalculation;
-        }
-        if (abilityDamageType == "Physical Damage")
-        {
-            DamageReciever.CurrentHealth -= damageCalculation * ((1 -( DamageReciever.CurrentArmor - DamageReciever.CurrentArmorPen)));
-        }
-        if (abilityDamageType == "Magic Damage")
-        {
-            DamageReciever.CurrentHealth -= damageCalculation * ((1 - (DamageReciever.CurrentArmor - DamageReciever.CurrentMagicPen)));
+            DamageReceiver.CurrentHealth -= damageCalculation;
         }
 
+        // 🛡️ PHYSICAL DAMAGE — reduced by armor minus **attacker's** armor pen
+        if (abilityDamageType == "Physical Damage")
+        {
+            float effectiveArmor = DamageReceiver.CurrentArmor - CurrentArmorPen;
+            DamageReceiver.CurrentHealth -= damageCalculation * (1 - effectiveArmor);
+        }
+
+        // 🧙 MAGIC DAMAGE — reduced by magic resist minus **attacker's** magic pen
+        if (abilityDamageType == "Magic Damage")
+        {
+            float effectiveResist = DamageReceiver.CurrentMagicResist - CurrentMagicPen;
+            DamageReceiver.CurrentHealth -= damageCalculation * (1 - effectiveResist);
+        }
+
+        // ✅ Optional: Clamp health to 0 to avoid negatives
+        DamageReceiver.CurrentHealth = Mathf.Max(0, DamageReceiver.CurrentHealth);
+
+        // ✅ Update their HP bar / status text
+        DamageReceiver.UpdateHealthText();
     }
-    
+
+
+
     public void TakeDamage(BaseCombat DamageReciever, int damage)
     {
         if (CurrentHealth > 0)

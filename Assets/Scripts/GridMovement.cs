@@ -27,7 +27,15 @@ public class GridMovement : MonoBehaviour
             StartCoroutine(statusUI.ShowStatusMessage("Poisoned"));
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            int gridX = Mathf.FloorToInt(mouseWorldPos.x + 0.5f);
+            int gridY = Mathf.FloorToInt(mouseWorldPos.y + 0.5f);
+            Debug.Log("Clicked tile: " + gridX + ", " + gridY);
+            transform.position = new Vector3(gridX, gridY, transform.position.z);
 
+        }
 
         if (isMoving || isWaitingForInput) return; // Prevent movement spam
         
