@@ -33,18 +33,28 @@ public class PlayerCombat : MonoBehaviour
             abilitySelected = false;
             selectedAbility = "";
             gridManager.ClearAbilityHighlights();
+            gridManager.ClearMouseTrajectoryVector();
         }
     }
 
     public void AbilityHighlight()
     {
         Debug.Log("Highlighting tiles for: " + selectedAbility);
+
         int abilityRange = Mathf.RoundToInt(abilities.dAbilityStats[selectedAbility]["Range"]);
-        string abilityShape = abilities.dAbilityInfo[selectedAbility]["Ability Shape"];
+        string targetShape = abilities.dAbilityInfo[selectedAbility]["Target Shape"];
         string abilityOrigin = abilities.dAbilityInfo[selectedAbility]["Ability Origin"];
+        string areaPattern = abilities.dAbilityInfo[selectedAbility]["Area Pattern"];
+        string areaSize = abilities.dAbilityInfo[selectedAbility]["Area Size"];
         string abilityType = abilities.dAbilityInfo[selectedAbility]["Ability Type"];
-        Vector2Int playerPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
-        gridManager.hightlightAbilityTiles(abilityRange, abilityShape, abilityOrigin, abilityType, playerPos);
+
+        Vector2Int playerPos = new Vector2Int(
+            Mathf.RoundToInt(transform.position.x),
+            Mathf.RoundToInt(transform.position.y)
+        );
+
+        gridManager.hightlightAbilityTiles(abilityRange, areaPattern, abilityOrigin, abilityType, playerPos, areaSize); 
     }
+
 
 }

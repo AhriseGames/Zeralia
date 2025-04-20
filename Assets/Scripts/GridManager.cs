@@ -4,71 +4,109 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
+    [Header("Grid Settings")]
     public int gridWidth = 30;
     public int gridHeight = 30;
     public GameObject tilePrefab;
-    Vector3 currentMousePosition;
-    public GameObject[,] tileGrid;
-    int oldValueX = 0;
-    int oldValueY = 0;
-    public PlayerCombat playerCombat;
-    public int gridX;
-    public int gridY;
+    public GameObject mouseHighlightPrefab;
+    public GameObject currentMouseTile;
+    public GameObject currentAbilityMouseTile;
     public Sprite highlightAbilityRange;
-    List<GameObject> activeHighlightTiles = new List<GameObject>();
 
+    [Header("Refs")]
+    public PlayerCombat playerCombat;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Vector3 currentMousePosition;
+    public int gridX, gridY;
+    public Vector2Int vMousePosition;
+    private GameObject[,] tileGrid;
+    private int oldValueX = 0, oldValueY = 0;
+
+    private List<GameObject> activeHighlightTiles = new List<GameObject>();
+    private List<Vector2Int> validAbilityTargetTiles = new List<Vector2Int>();
+
+    private int abilityRange;
+    private string abilityShape;
+    private string abilityOrigin;
+    private string abilityType;
+    private string abilitySize;
+    public Vector2Int playerPosition;
+    public List<Vector2Int> playerToMousePathTileCoords = new List <Vector2Int>();
+    Vector2Int lastStart = new Vector2Int();
+    Vector2Int lastEnd = new Vector2Int();
+    public List<GameObject> currentTrajectoryTiles = new List<GameObject>();
     void Start()
     {
         tileGrid = new GameObject[gridWidth, gridHeight];
-
         for (int i = 0; i < gridWidth; i++)
         {
             for (int x = 0; x < gridHeight; x++)
             {
                 Vector3 spawnTileHere = new Vector3(i, x, 0);
-                tileGrid[i,x] = Instantiate(tilePrefab, spawnTileHere, Quaternion.identity);
+                tileGrid[i, x] = Instantiate(tilePrefab, spawnTileHere, Quaternion.identity);
             }
         }
+
+        currentMouseTile = Instantiate(mouseHighlightPrefab, Vector3.zero, Quaternion.identity);
+        currentMouseTile.SetActive(false);
+
+        currentAbilityMouseTile = Instantiate(currentAbilityMouseTile, Vector3.zero, Quaternion.identity);
+        currentAbilityMouseTile.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // 1. Convert mouse position
         currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         gridX = Mathf.FloorToInt(currentMousePosition.x + 0.5f);
         gridY = Mathf.FloorToInt(currentMousePosition.y + 0.5f);
+        vMousePosition = new Vector2Int(gridX, gridY);
 
-
-
-
-        // 3. Highlight hovered tile (if in bounds)
-        if (gridX >= 0 && gridX < gridWidth && gridY >= 0 && gridY < gridHeight && playerCombat.abilitySelected == false)
+        if (!playerCombat.abilitySelected)
         {
-            tileGrid[gridX, gridY].GetComponent<SpriteRenderer>().color = Color.yellow;
-            int gridXHighlight = gridX;
-            int gridYHighlight = gridY;
-            checkCurrentHighlightedTile(gridX, gridY);
-        }
+            if (gridX >= 0 && gridX < gridWidth && gridY >= 0 && gridY < gridHeight)
+            {
+                Vector3 mouseHighlight = new Vector3(gridX, gridY, 0);
+                currentMouseTile.transform.position = mouseHighlight;
+                currentMouseTile.SetActive(true);
+            }
+            else
+            {
+                currentMouseTile.SetActive(false);
+            }
 
-        if(playerCombat.abilitySelected == true)
+            currentAbilityMouseTile.SetActive(false);
+        }
+        else
         {
-            tileGrid[oldValueX, oldValueY].GetComponent<SpriteRenderer>().color = Color.white;
-        }
+            validAbilityTargetTiles.Clear();
 
+            foreach (GameObject tile in activeHighlightTiles)
+            {
+                Vector2Int tileGridPos = new Vector2Int(Mathf.RoundToInt(tile.transform.position.x), Mathf.RoundToInt(tile.transform.position.y));
+                validAbilityTargetTiles.Add(tileGridPos);
+            }
+
+            if (gridX >= 0 && gridX < gridWidth && gridY >= 0 && gridY < gridHeight && validAbilityTargetTiles.Contains(vMousePosition))
+            {
+                highlightAbilityAffectArea(abilityRange, abilityShape, abilityOrigin, abilityType, vMousePosition, playerPosition, abilitySize);
+            }
+            else
+            {
+                currentAbilityMouseTile.SetActive(false);
+            }
+
+            currentMouseTile.SetActive(false);
+        }
     }
 
     public void checkCurrentHighlightedTile(int currentTileX, int currentTileY)
     {
         if (currentTileX != oldValueX || currentTileY != oldValueY)
         {
-            tileGrid[oldValueX,oldValueY].GetComponent<SpriteRenderer>().color = Color.white;
+            tileGrid[oldValueX, oldValueY].GetComponent<SpriteRenderer>().color = Color.white;
             oldValueX = currentTileX;
             oldValueY = currentTileY;
         }
-        
     }
 
     public void ClearAbilityHighlights()
@@ -80,41 +118,117 @@ public class GridManager : MonoBehaviour
         activeHighlightTiles.Clear();
     }
 
-    public void hightlightAbilityTiles(int aRange, string aShape, string aOrigin, string aType, Vector2Int pPos)
+    public void hightlightAbilityTiles(int aRange, string aShape, string aOrigin, string aType, Vector2Int pPos, string aSize)
     {
-        Vector2Int playerPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
-        Debug.Log("PLayer's position at the time of casting: " + pPos);
-        if (aOrigin == "Emitting")
+        abilityRange = aRange;
+        abilityShape = aShape;
+        abilityOrigin = aOrigin;
+        abilityType = aType;
+        abilitySize = aSize;
+        playerPosition = pPos;
+
+        hightlightAbilityRangeTiles(aRange, aShape, aOrigin, aType, pPos, aSize);
+    }
+
+    public void hightlightAbilityRangeTiles(int aRange, string aShape, string aOrigin, string aType, Vector2Int pPos, string aSize)
+    {
+        aRange += 1;
+
+        for (int x = -aRange + 1; x < aRange; x++)
         {
-            aRange += 1;
-            for (int x = -aRange+1; x < aRange; x++)
+            for (int y = -aRange + 1; y < aRange; y++)
             {
-                for (int y = -aRange+1; y < aRange; y++)
+                if (Mathf.Abs(x) + Mathf.Abs(y) <= aRange - 1)
                 {
-                    if (Mathf.Abs(x) + Mathf.Abs(y) <= aRange - 1)
+                    int newX = pPos.x + x;
+                    int newY = pPos.y + y;
+
+                    if (newX < 0 || newY < 0 || newX >= gridWidth || newY >= gridHeight)
                     {
-                        if (pPos.x + x < 0 || pPos.y + y < 0 || pPos.x + x >= gridWidth || pPos.y + y >= gridHeight)
-                        {
-                            Debug.Log("Some tiles are out of the border but that's ok i made sure to handle that :^)");
-                        }
-                        else
-                        {
-                            // 1️ Calculate the spawn position for the highlight tile
-                            Vector3 spawnPos = new Vector3(pPos.x + x, pPos.y + y, 0);
-
-                            // 2️ Spawn the tile prefab (a red overlay or whatever)
-                            GameObject highlightTile = Instantiate(tilePrefab, spawnPos, Quaternion.identity);
-
-                            // 3️ Set the tile’s sprite to the special highlight sprite
-                            highlightTile.GetComponent<SpriteRenderer>().sprite = highlightAbilityRange;
-
-                            // 4 Store it in the list so we can clean it up later
-                            activeHighlightTiles.Add(highlightTile);
-                        }
+                        Debug.Log("Out-of-bounds highlight tile skipped.");
+                    }
+                    else
+                    {
+                        Vector3 spawnPos = new Vector3(newX, newY, 0);
+                        GameObject highlightTile = Instantiate(tilePrefab, spawnPos, Quaternion.identity);
+                        highlightTile.GetComponent<SpriteRenderer>().sprite = highlightAbilityRange;
+                        activeHighlightTiles.Add(highlightTile);
                     }
                 }
             }
         }
+    }
+
+    public void highlightAbilityAffectArea(int aRange, string aShape, string aOrigin, string aType, Vector2Int targetPos, Vector2Int playerPositionAbilityCast, string aSize)
+    {
+        Vector2Int start = playerPositionAbilityCast;
+        Vector2Int end = targetPos;
+
+
+        int dx = Mathf.Abs(end.x - start.x);
+        int dy = Mathf.Abs(end.y - start.y);
+
+        int stepX = (start.x < end.x) ? 1 : -1;
+        int stepY = (start.y < end.y) ? 1 : -1;
+
+        int err = dx - dy;
+
+        int currentX = start.x;
+        int currentY = start.y;
+        if (lastStart != playerPositionAbilityCast || lastEnd != targetPos)
+        {
+
             
+            ClearMouseTrajectoryVector();
+            for (int i = 0; i <= abilityRange; i++)
+            {
+                
+                Vector3 spawnPos = new Vector3(currentX, currentY, 0);
+                currentAbilityMouseTile.transform.position = spawnPos;
+                currentAbilityMouseTile.SetActive(true);
+
+                if (currentX == end.x && currentY == end.y) break;
+
+                int e2 = 2 * err;
+
+                if (e2 > -dy)
+                {
+                    err -= dy;
+                    currentX += stepX;
+                }
+
+                if (e2 < dx)
+                {
+                    err += dx;
+                    currentY += stepY;
+                }
+                Vector2Int currentCoords = new Vector2Int(currentX, currentY);
+                playerToMousePathTileCoords.Add(currentCoords);
+            }
+            foreach (Vector2Int tile in playerToMousePathTileCoords) //draws the line between the player and mouse tile
+            {
+                Vector3 vect3Tile = new Vector3(tile.x, tile.y, 0);
+                GameObject holdActiveMouseTiles = Instantiate(currentAbilityMouseTile, vect3Tile,Quaternion.identity);
+                currentTrajectoryTiles.Add(holdActiveMouseTiles);
+            }
+            lastStart = playerPositionAbilityCast; //held the info of previous tiles to check if it moves so it fails the if statement above
+            lastEnd = targetPos;
+            Debug.Log(string.Join(", ", playerToMousePathTileCoords));
+        }
+        else
+        {
+
+            playerToMousePathTileCoords.Clear();
+        }
+        
+
+    }
+    public void ClearMouseTrajectoryVector()
+    {
+        foreach (GameObject oldMouseHighligtedTiles in currentTrajectoryTiles)//all old highlighted tiles here go bye-bye
+        {
+            Destroy(oldMouseHighligtedTiles);
+        }
+        currentTrajectoryTiles.Clear();
     }
 }
