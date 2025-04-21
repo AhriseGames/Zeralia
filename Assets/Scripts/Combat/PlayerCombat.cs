@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -7,9 +9,14 @@ public class PlayerCombat : MonoBehaviour
     public string selectedAbility = "";
     public Abilities abilities;
     public GridManager gridManager;
+    private BaseCombat baseCombat;
+    public AbilityAnimation abilityAnimation;
+    public List<BaseCombat> lNpcsHit = new List<BaseCombat>();
+    [SerializeField] private EnemyManager enemyManager;
+
     void Start()
     {
-        // Inherit all base setup if needed
+        baseCombat = GetComponent<BaseCombat>();
     }
 
     void Update()
@@ -35,6 +42,46 @@ public class PlayerCombat : MonoBehaviour
             gridManager.ClearAbilityHighlights();
             gridManager.ClearMouseTrajectoryVector();
         }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && abilitySelected == true)
+        {
+            StartCoroutine(DelayedFireSpell());
+        }
+    }
+
+    private IEnumerator DelayedFireSpell()
+    {
+        yield return new WaitForEndOfFrame(); // ensures Update finishes, path is filled
+        List<Vector2Int> cachedPath = gridManager.GetCurrentAbilityPath();
+        Debug.Log("We're in Delayed Fire Spell");
+        StartCoroutine(abilityAnimation.animateSpell(selectedAbility, gridManager.abilityStartPos, gridManager.abilityEndPos, "vectorAToB"));
+        yield return StartCoroutine(FireSpell(cachedPath));
+    }
+
+    public IEnumerator FireSpell(List<Vector2Int> lAbilityPath)
+    {
+        yield return new WaitForSeconds(0.05f);
+        foreach (Vector2Int tileToCheckForEnemy in lAbilityPath)
+        {
+            foreach (GameObject activeEnemy in enemyManager.activeEnemies)
+            {
+                Vector2Int activeEnemyPosition = new Vector2Int(
+                    Mathf.RoundToInt(activeEnemy.transform.position.x),
+                    Mathf.RoundToInt(activeEnemy.transform.position.y));
+
+                Debug.Log("Tile: " + tileToCheckForEnemy + " vs Enemy Pos: " + activeEnemyPosition);
+                if (activeEnemyPosition == tileToCheckForEnemy)
+                {
+                    BaseCombat enemyHit = activeEnemy.GetComponent<BaseCombat>();
+                    baseCombat.CombatCalculation(enemyHit, selectedAbility);
+                }
+            }
+        }
+
+        abilitySelected = false;
+        selectedAbility = "";
+        gridManager.ClearAbilityHighlights();
+        gridManager.ClearMouseTrajectoryVector();
     }
 
     public void AbilityHighlight()
@@ -53,8 +100,6 @@ public class PlayerCombat : MonoBehaviour
             Mathf.RoundToInt(transform.position.y)
         );
 
-        gridManager.hightlightAbilityTiles(abilityRange, areaPattern, abilityOrigin, abilityType, playerPos, areaSize); 
+        gridManager.hightlightAbilityTiles(abilityRange, areaPattern, abilityOrigin, abilityType, playerPos, areaSize);
     }
-
-
 }

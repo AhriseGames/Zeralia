@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     public Dictionary<string, List<GameObject>> allEnemies = new Dictionary<string, List<GameObject>>();
     public List<GameObject> forestEnemies = new List<GameObject>();
     public List<GameObject> dummyEnemy = new List<GameObject>();
+    public List<GameObject> activeEnemies = new List<GameObject>();
 
     public GameObject Skeleton;
     public GameObject Orc;
@@ -39,7 +40,8 @@ public class EnemyManager : MonoBehaviour
         GameObject selectedEnemyPrefab = allEnemies[zoneName][spawnRandom];
 
         // Spawn enemy
-        GameObject spawnedEnemy = Instantiate(selectedEnemyPrefab, new Vector3(Random.Range(-5, 5), Random.Range(-5, 5)), Quaternion.identity);
+        GameObject spawnedEnemy = Instantiate(selectedEnemyPrefab, new Vector3(Random.Range(5, 5), Random.Range(5, 5)), Quaternion.identity);
+        activeEnemies.Add(spawnedEnemy);
         // Assign characterStats to EnemyCombat
         BaseCombat enemyCombatScript = spawnedEnemy.GetComponent<BaseCombat>();
         enemyCombatScript.characterStats = characterStats;

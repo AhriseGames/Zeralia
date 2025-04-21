@@ -30,11 +30,14 @@ public class GridManager : MonoBehaviour
     private string abilityOrigin;
     private string abilityType;
     private string abilitySize;
+    public Vector2Int abilityStartPos;
+    public Vector2Int abilityEndPos;
     public Vector2Int playerPosition;
-    public List<Vector2Int> playerToMousePathTileCoords = new List <Vector2Int>();
+    public List<Vector2Int> playerToMousePathTileCoords = new List<Vector2Int>();
     Vector2Int lastStart = new Vector2Int();
     Vector2Int lastEnd = new Vector2Int();
     public List<GameObject> currentTrajectoryTiles = new List<GameObject>();
+
     void Start()
     {
         tileGrid = new GameObject[gridWidth, gridHeight];
@@ -145,7 +148,7 @@ public class GridManager : MonoBehaviour
 
                     if (newX < 0 || newY < 0 || newX >= gridWidth || newY >= gridHeight)
                     {
-                        Debug.Log("Out-of-bounds highlight tile skipped.");
+
                     }
                     else
                     {
@@ -163,6 +166,8 @@ public class GridManager : MonoBehaviour
     {
         Vector2Int start = playerPositionAbilityCast;
         Vector2Int end = targetPos;
+        abilityStartPos = start;
+        abilityEndPos = end;
 
 
         int dx = Mathf.Abs(end.x - start.x);
@@ -175,14 +180,14 @@ public class GridManager : MonoBehaviour
 
         int currentX = start.x;
         int currentY = start.y;
+
         if (lastStart != playerPositionAbilityCast || lastEnd != targetPos)
         {
-
-            
             ClearMouseTrajectoryVector();
+            playerToMousePathTileCoords.Clear();
+
             for (int i = 0; i <= abilityRange; i++)
             {
-                
                 Vector3 spawnPos = new Vector3(currentX, currentY, 0);
                 currentAbilityMouseTile.transform.position = spawnPos;
                 currentAbilityMouseTile.SetActive(true);
@@ -205,30 +210,31 @@ public class GridManager : MonoBehaviour
                 Vector2Int currentCoords = new Vector2Int(currentX, currentY);
                 playerToMousePathTileCoords.Add(currentCoords);
             }
-            foreach (Vector2Int tile in playerToMousePathTileCoords) //draws the line between the player and mouse tile
+
+            foreach (Vector2Int tile in playerToMousePathTileCoords)
             {
                 Vector3 vect3Tile = new Vector3(tile.x, tile.y, 0);
-                GameObject holdActiveMouseTiles = Instantiate(currentAbilityMouseTile, vect3Tile,Quaternion.identity);
+                GameObject holdActiveMouseTiles = Instantiate(currentAbilityMouseTile, vect3Tile, Quaternion.identity);
                 currentTrajectoryTiles.Add(holdActiveMouseTiles);
             }
-            lastStart = playerPositionAbilityCast; //held the info of previous tiles to check if it moves so it fails the if statement above
+
+            lastStart = playerPositionAbilityCast;
             lastEnd = targetPos;
             Debug.Log(string.Join(", ", playerToMousePathTileCoords));
         }
-        else
-        {
-
-            playerToMousePathTileCoords.Clear();
-        }
-        
-
     }
+
     public void ClearMouseTrajectoryVector()
     {
-        foreach (GameObject oldMouseHighligtedTiles in currentTrajectoryTiles)//all old highlighted tiles here go bye-bye
+        foreach (GameObject oldMouseHighligtedTiles in currentTrajectoryTiles)
         {
             Destroy(oldMouseHighligtedTiles);
         }
         currentTrajectoryTiles.Clear();
+    }
+
+    public List<Vector2Int> GetCurrentAbilityPath()
+    {
+        return new List<Vector2Int>(playerToMousePathTileCoords);
     }
 }

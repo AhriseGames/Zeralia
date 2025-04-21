@@ -9,8 +9,8 @@ public class Abilities : MonoBehaviour
     {
         dAbilityStats.Add("Fire Lance", new Dictionary<string, float>
         {
-            { "Base Damage", 40f },
-            { "Damage Multiplier", 40f }, //this is a percentage of the character's total strength, agility, etc stat, so 40 base damage + 40% of int
+            { "Base Damage", 50f },
+            { "Damage Multiplier", .8f }, //this is a percentage of the character's total strength, agility, etc stat, so 40 base damage + 40% of int
             { "Mana Cost", 15f },
             { "Health Cost", 4f },//double edged sword? hp damage sounds cool
             { "Cooldown", 4f },
