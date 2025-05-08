@@ -40,7 +40,7 @@ public class EnemyManager : MonoBehaviour
         GameObject selectedEnemyPrefab = allEnemies[zoneName][spawnRandom];
 
         // Spawn enemy
-        GameObject spawnedEnemy = Instantiate(selectedEnemyPrefab, new Vector3(Random.Range(5, 5), Random.Range(5, 5)), Quaternion.identity);
+        GameObject spawnedEnemy = Instantiate(selectedEnemyPrefab, new Vector3(Random.Range(25, 25), Random.Range(25, 25)), Quaternion.identity);
         activeEnemies.Add(spawnedEnemy);
         // Assign characterStats to EnemyCombat
         BaseCombat enemyCombatScript = spawnedEnemy.GetComponent<BaseCombat>();

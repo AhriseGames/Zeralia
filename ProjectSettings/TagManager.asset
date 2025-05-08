@@ -16,7 +16,7 @@ TagManager:
   - SolidObjects
   - NPC/Enemy
   - NPC/Neutral
-  - 
+  - Player
   - 
   - 
   - 
@@ -40,6 +40,69 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1339632519
+    locked: 0
+  - name: Background overlay(glowing runes, 2 backgrounds layered, etc)
+    uniqueID: 2351585385
+    locked: 0
+  - name: TerrainOverlay (Grass, cracks, blood stains, sand, etc.)
+    uniqueID: 3305605493
+    locked: 0
+  - name: "EnvironmentLow\t(Bushes, rocks, foliage at foot level)"
+    uniqueID: 753779275
+    locked: 0
+  - name: ShadowLayer (Tree shadows, wall shadows, cast shadows)
+    uniqueID: 4076870145
+    locked: 0
+  - name: WallUnder
+    uniqueID: 1854949747
+    locked: 0
+  - name: WallsLow (Short walls, cliffs, fences)
+    uniqueID: 1296413661
+    locked: 0
+  - name: Wall Layer
+    uniqueID: 3064269293
+    locked: 0
+  - name: Tree layer 0
+    uniqueID: 2952488799
+    locked: 0
+  - name: Tree layer 1
+    uniqueID: 4170134897
+    locked: 0
+  - name: "Breakables\t(Crates, pots, destructible walls)"
+    uniqueID: 3020463825
+    locked: 0
+  - name: AbilityOverlay (Red highlight tiles, yellow hover tile, ability area indicators)
+    uniqueID: 2166915977
+    locked: 0
+  - name: Abilities (Projectiles, spells, attack visuals)
+    uniqueID: 1310143077
+    locked: 0
+  - name: Interactables (Barrels, chests, switches, NPC objects)
+    uniqueID: 1566484145
+    locked: 0
+  - name: Player (Player character)
+    uniqueID: 2915616403
+    locked: 0
+  - name: NPC (NPCs)
+    uniqueID: 4017556105
+    locked: 0
+  - name: Effects (Hit effects, flashes, buffs, debuffs, blood splatter)
+    uniqueID: 947915305
+    locked: 0
+  - name: UIWorld (Floating damage numbers, nameplates, world tooltips)
+    uniqueID: 3991472355
+    locked: 0
+  - name: UI (HUD elements, ability bars, health bars)
+    uniqueID: 3953235153
+    locked: 0
+  - name: Overlay (Fade-in overlays, fullscreen filters)
+    uniqueID: 3739574853
+    locked: 0
+  - name: "AlwaysTop\t(Paused screen, warning banners, tooltips, debug info)"
+    uniqueID: 4154075977
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

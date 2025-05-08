@@ -5,8 +5,8 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     [Header("Grid Settings")]
-    public int gridWidth = 30;
-    public int gridHeight = 30;
+    public int gridWidth = 64;
+    public int gridHeight = 64;
     public GameObject tilePrefab;
     public GameObject mouseHighlightPrefab;
     public GameObject currentMouseTile;
@@ -55,6 +55,7 @@ public class GridManager : MonoBehaviour
 
         currentAbilityMouseTile = Instantiate(currentAbilityMouseTile, Vector3.zero, Quaternion.identity);
         currentAbilityMouseTile.SetActive(false);
+        Debug.Log("Total Tiles: " + (gridWidth * gridHeight));
     }
 
     void Update()
