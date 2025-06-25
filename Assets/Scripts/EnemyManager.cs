@@ -9,6 +9,8 @@ public class EnemyManager : MonoBehaviour
     public List<GameObject> forestEnemies = new List<GameObject>();
     public List<GameObject> dummyEnemy = new List<GameObject>();
     public List<GameObject> activeEnemies = new List<GameObject>();
+    [SerializeField] private CombatDetector combatDetector;
+
 
     public GameObject Skeleton;
     public GameObject Orc;
@@ -45,7 +47,7 @@ public class EnemyManager : MonoBehaviour
         // Assign characterStats to EnemyCombat
         BaseCombat enemyCombatScript = spawnedEnemy.GetComponent<BaseCombat>();
         enemyCombatScript.characterStats = characterStats;
-
+        combatDetector.TrackEnemy(enemyCombatScript);
         yield return new WaitForSeconds(1f);
     }
 

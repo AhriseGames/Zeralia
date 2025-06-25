@@ -23,8 +23,8 @@ public class BaseCombat : MonoBehaviour
     public bool isReadyToAct = false;
     public Sprite portraitSprite;
     public TextMeshProUGUI portraitSpeed;
-    public Dictionary<string, List<GameObject>> allEnemies = new Dictionary<string, List<GameObject>>();
     public Dictionary<string, float> liveStats = new Dictionary<string, float>();
+    
 
 
 

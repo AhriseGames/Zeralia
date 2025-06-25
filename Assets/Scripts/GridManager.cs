@@ -37,6 +37,7 @@ public class GridManager : MonoBehaviour
     Vector2Int lastStart = new Vector2Int();
     Vector2Int lastEnd = new Vector2Int();
     public List<GameObject> currentTrajectoryTiles = new List<GameObject>();
+    public List<GameObject> battleFloorTiles = new List<GameObject>();
 
     void Start()
     {
@@ -47,6 +48,7 @@ public class GridManager : MonoBehaviour
             {
                 Vector3 spawnTileHere = new Vector3(i, x, 0);
                 tileGrid[i, x] = Instantiate(tilePrefab, spawnTileHere, Quaternion.identity);
+                battleFloorTiles.Add(tileGrid[i, x]);
             }
         }
 
